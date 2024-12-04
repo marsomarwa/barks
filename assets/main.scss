@@ -1,9 +1,7 @@
-
 main {
-
-	text-align: left;
-	width: 100%;
-	padding-top: 25px;
+    text-align: left;
+    width: 100%;
+    padding-top: 25px;
     padding-bottom: 40px;
     color: $text-color;
 
@@ -14,21 +12,16 @@ main {
         text-underline-offset: 3px;
     }
 
-    a:hover  {
+    a:hover {
         text-decoration-style: solid;
-        text-decoration-color: $link-color;
+        text-decoration-color: $accent-color; // Use accent color for hover
     }
-
 
     figure {
         display: block;
         width: 90%;
         margin: 2em auto;
         text-align: center;
-    }
-
-    figure table {
-        width: 100%;
     }
 
     figcaption {
@@ -40,11 +33,7 @@ main {
     }
 
     figcaption a {
-        @if (lightness($background-color) < 55%) { 
-            color: grayscale(darken(invert($background-color), 50%)) !important; 
-        } @else { 
-            color: grayscale(lighten(invert($background-color), 50%)) !important; 
-        }
+        color: $accent-color; // Highlight links in figcaptions with accent
     }
 
     figcaption h4 {
@@ -55,7 +44,8 @@ main {
     .center {
         text-align: center;
     }
-
 }
 
-main > :first-child { margin-top: 0 !important; }
+main > :first-child {
+    margin-top: 0 !important;
+}

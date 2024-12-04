@@ -2,6 +2,7 @@
 <article class="post">
 
     {{ partial "post_title.html" . }}
+    {{ partial "reading-time.html" . }}
     {{ .Content | safeHTML }}
 
 </article>
