@@ -22,11 +22,11 @@
         img.style.opacity = 0;
         clearTimeout(resetTimeout);
         setTimeout(() => {
-            img.src = "/images/" + filename;
+            img.src = "{{ .Site.BaseURL }}images/" + filename;
             img.style.opacity = 1;
         }, 300);
         resetTimeout = setTimeout(() => {
-            img.src = "/{{ .Params.image }}";
+            img.src = "{{ .Site.BaseURL }}{{ .Params.image }}";
         }, 4000);
         }
         </script>
