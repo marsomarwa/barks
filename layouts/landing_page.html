@@ -6,8 +6,30 @@
             {{ .Content | safeHTML }}
         </div>
     </div>
-    <div class="landing-page-image">
-        <img src="{{ .Params.image }}" alt="{{ .Site.Params.header.title }}" width="221" height="331">
-    </div>
+        <div class="landing-page-image">
+            <img id="marwa-photo" 
+                src="{{ .Params.image }}" 
+                alt="{{ .Site.Params.header.title }}" 
+                width="221" height="331"
+                style="border-radius:12px;transition:opacity 0.4s ease;">
+        </div>
+
+        <script>
+        let resetTimeout;
+        function changeImage(filename) {
+        const img = document.getElementById("marwa-photo");
+        if (!img) return;
+        img.style.opacity = 0;
+        clearTimeout(resetTimeout);
+        setTimeout(() => {
+            img.src = "/images/" + filename;
+            img.style.opacity = 1;
+        }, 300);
+        resetTimeout = setTimeout(() => {
+            img.src = "/{{ .Params.image }}";
+        }, 4000);
+        }
+        </script>
+
 </div>
 {{ end }}
